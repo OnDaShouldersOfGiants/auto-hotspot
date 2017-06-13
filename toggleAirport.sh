@@ -1,5 +1,6 @@
 #!/bin/bash
-set -x
+#git@github.com:paulbhart/toggleairport.git
+#originally from https://gist.github.com/albertbori/1798d88a93175b9da00b
 function set_airport {
 
     new_status=$1
