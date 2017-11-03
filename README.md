@@ -3,7 +3,7 @@ All the credit for the code belongs to others including https://gist.github.com/
 Assuming you have git all ready configured for GitHub, then simply do the following
 
 ```bash
-git clone git@github.com:paulbhart/toggleairport.git
+git clone https://github.com/paulbhart/toggleairport.git
 cd toggleairport
 sudo ./install.sh
 ```
