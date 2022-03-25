@@ -1,14 +1,16 @@
-All the credit for the code belongs to others including https://gist.github.com/albertbori/1798d88a93175b9da00b
+# Auto MacNet
 
-Assuming you have git all ready configured for GitHub, then simply do the following
+## About
 
-```bash
-git clone https://github.com/paulbhart/toggleairport.git
-cd toggleairport
-sudo ./install.sh
-```
+Automatically init network preferences based on network SSID change
 
-to uninstall just do
-```bash
-sudo ./uninstall.sh
-```
+## Usage
+
+## Requirement
+
+- Give permission to `/usr/bin/security` the ssid of the hotspot you want to connect at *Keychain Access* -> *ssid* -> *Get Info* -> *Access Control*
+
+## Credit
+
+<https://gist.github.com/albertbori/1798d88a93175b9da00b>
+<https://github.com/paulbhart/toggleairport>
