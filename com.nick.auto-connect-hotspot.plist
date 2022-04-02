@@ -5,10 +5,9 @@
 <dict>
   <key>Label</key>
   <string>com.nick.auto-connect-hotspot</string>
-    <key>Program</key>
-    <string>/Library/Scripts/auto-connect-hotspot.sh</string>
   <key>ProgramArguments</key>
   <array>
+    <string>/Library/Scripts/auto-connect-hotspot.sh</string>
     <string>CA-OFFICE</string>
     <string>ip</string>
     <string>4</string>
