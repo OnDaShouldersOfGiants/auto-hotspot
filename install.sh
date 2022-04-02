@@ -9,4 +9,4 @@ cp ./auto-connect-hotspot.sh /Library/Scripts/
 chmod 755 /Library/Scripts/auto-connect-hotspot.sh
 cp ./com.nick.auto-connect-hotspot.plist /Library/LaunchAgents/
 chmod 600 /Library/LaunchAgents/com.nick.auto-connect-hotspot.plist
-launchctl load /Library/LaunchAgents/com.nick.auto-connect-hotspot.plist
+launchctl bootstrap system /Library/LaunchAgents/com.nick.auto-connect-hotspot.plist
