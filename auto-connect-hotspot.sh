@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 function notify() {
     osascript -e 'display notification "Connected to hotspot "' \
