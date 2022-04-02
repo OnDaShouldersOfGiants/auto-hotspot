@@ -12,9 +12,9 @@ Automatically Connect to personal hotspot based on network SSID change
 2. clone the repo
 3. Modify the `ProgramArguments` key in plist file to your need
     * The first arg is the program itself, DON'T modify
-    * The second arg is the trigger SSID that if present connect to hotspot, otherwise do nothing. If empty then won't check
-    * The third arg is the SSID of your hotspot
-    * The fourth arg is the maximum time duration to run this script when network change occurs and not yet connected to hotspot
+    * The second arg is the SSID of your hotspot
+    * The third arg is the maximum time duration to run this script when network change occurs and not yet connected to hotspot
+    * The fourth arg is the trigger SSID that if present in available Wifis or unspecified then connect to hotspot, otherwise do nothing.
 4. `sudo ./install.sh`
 
 ### Uninstall

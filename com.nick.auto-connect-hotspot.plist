@@ -8,9 +8,9 @@
   <key>ProgramArguments</key>
   <array>
     <string>/Library/Scripts/auto-connect-hotspot.sh</string>
-    <string>TRIGGER_SSID</string>
     <string>HOTSPOT_SSID</string>
     <string>600</string>
+    <string>TRIGGER_SSID</string>
   </array>
   <key>WatchPaths</key>
   <array>
