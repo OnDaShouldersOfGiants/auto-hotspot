@@ -2,13 +2,25 @@
 
 ## About
 
-Automatically Connect to personal hotspot based on network SSID change
+Automatically Connect to personal hotspot based on network SSID change event. i.e. turn on/off wifi, connected/disconnected to a network, etc.
+
+## Requirement
+
+* Grant *Access Control* permission to `/usr/bin/security` of the hotspot ssid in *Keychain Access*
+* Password for the hotspot has been saved to *keychain*
 
 ## Usage
 
 ### Install
 
-1. Give permission to `/usr/bin/security` the ssid of the hotspot you want to connect at *Keychain Access* -> *ssid* -> *Get Info* -> *Access Control*
+1. *Grant*Access Control*permission to `/usr/bin/security` of the hotspot ssid in*Keychain Access*
+    1. Open *Keychain Access*
+    2. Select *All items* tab
+    3. Input the SSID of your hotspot in the search box and search
+    4. Select the record with of your SSID name with *System* in *Keychain* column and double click
+    5. Choose *Access Control* tab
+    6. Click + and input the path to security `/usr/bin` (keyboard shortcut: `command shift g`)
+    7. select *security* and *Add*
 2. clone the repo
 3. Modify the `ProgramArguments` key in plist file to your need
     * The first arg is the program itself, DON'T modify
@@ -20,10 +32,6 @@ Automatically Connect to personal hotspot based on network SSID change
 ### Uninstall
 
 `sudo ./uninstall.sh`
-
-## Requirement
-
-* Give permission to `/usr/bin/security` the ssid of the hotspot you want to connect at *Keychain Access* -> *ssid* -> *Get Info* -> *Access Control*
 
 ## Credit
 
