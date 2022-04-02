@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#git@github.com:paulbhart/toggleairport.git
-#originally from https://gist.github.com/albertbori/1798d88a93175b9da00b
 
 function notify() {
     osascript -e 'display notification "Connected to hotspot "' \
@@ -51,7 +49,7 @@ function main() {
     fi
 
     try_connect "$trigger_to_connect_ssid" "$hotspot_to_connect_ssid" "$sleep_interval" "$eth_name" "$air_name"
-    if /usr/sbin/networksetup -getairportnetwork "$air_name" | awk '{ print $4 }'; then
+    if /usr/sbin/networksetup -getairportnetwork "$air_name" | awk '{ print $4 }' | grep -q 'ip'; then
         notify "$hotspot_to_connect_ssid"
     fi
 }
