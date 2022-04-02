@@ -35,5 +35,5 @@ Automatically Connect to personal hotspot based on network SSID change event. i.
 
 ## Credit
 
-<https://gist.github.com/albertbori/1798d88a93175b9da00b>
-<https://github.com/paulbhart/toggleairport>
+* <https://gist.github.com/albertbori/1798d88a93175b9da00b>
+* <https://github.com/paulbhart/toggleairport>
