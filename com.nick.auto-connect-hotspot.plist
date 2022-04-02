@@ -10,7 +10,7 @@
     <string>/Library/Scripts/auto-connect-hotspot.sh</string>
     <string>CA-OFFICE</string>
     <string>ip</string>
-    <string>4</string>
+    <string>600</string>
   </array>
   <key>WatchPaths</key>
   <array>
