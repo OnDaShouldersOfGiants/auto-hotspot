@@ -1,4 +1,4 @@
-# Auto Connect HotSpot
+# Auto HotSpot
 
 ## About
 
