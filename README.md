@@ -4,17 +4,21 @@
 
 Automatically Connect Mac to personal hotspot if no more preferred network available, based on network change. i.e. turn on/off wifi, connected/disconnected to a network, etc.
 
-## How does it work
+### Intro
 
-When network change like turning on/off Wifi takes place, this tool is triggered and will check for connectivity, available wifis, if trigger ssid is around and so on. If all conditions are met, it will keep trying to connect to your defined hotspot at a specified frequency for a specified duration, until either connected to this hotspot or above trigger condition fails(e.g. already connected to another network).
+As of macOS 12.3, Apple does not allow you to automatically initialize connection to your iPhone's hotspot as it treats the hotspot in a proprietary fashion which differs than treating other Wifi networks. This tool helps you achieve that.
 
-## Requirement
+### How does it work
+
+When network change like turning on/off Wifi takes place, this tool is triggered and will check for connectivity, available wifis, if trigger ssid is around and so on. If all conditions are met, it will keep trying to connect to your specified hotspot at a specified frequency for a specified duration, until either connected to this hotspot or above trigger condition fails(e.g. already connected to another network).
+
+## Usage
+
+### Requirement
 
 * Elevated privilege to install the daemon
 * Grant *Access Control* permission to `/usr/bin/security` of the hotspot ssid in *Keychain Access*
 * Password for the hotspot has been saved to *keychain*
-
-## Usage
 
 ### Install
 
@@ -37,6 +41,10 @@ When network change like turning on/off Wifi takes place, this tool is triggered
 ### Uninstall
 
 `sudo ./uninstall.sh`
+
+## Future work
+
+* [ ] Add more trigger conditions
 
 ## Credit
 
