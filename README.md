@@ -20,6 +20,10 @@ When network change like turning on/off Wifi takes place, this tool is triggered
 * Grant *Access Control* permission to `/usr/bin/security` of the hotspot ssid in *Keychain Access*
 * Password for the hotspot has been saved to *keychain*
 
+### Dependency
+
+* None
+
 ### Install
 
 1. *Grant*Access Control*permission to `/usr/bin/security` of the hotspot ssid in*Keychain Access*
