@@ -2,10 +2,11 @@
 
 ## About
 
-Automatically Connect to personal hotspot based on network SSID change event. i.e. turn on/off wifi, connected/disconnected to a network, etc.
+Automatically Connect Mac to personal hotspot based on network change. i.e. turn on/off wifi, connected/disconnected to a network, etc.
 
 ## Requirement
 
+* Elevated privilege to install the daemon
 * Grant *Access Control* permission to `/usr/bin/security` of the hotspot ssid in *Keychain Access*
 * Password for the hotspot has been saved to *keychain*
 
