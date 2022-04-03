@@ -4,6 +4,10 @@
 
 Automatically Connect Mac to personal hotspot if no more preferred network available, based on network change. i.e. turn on/off wifi, connected/disconnected to a network, etc.
 
+## How does it work
+
+When network change like turning on/off Wifi takes place, this tool is triggered and will check for connectivity, available wifis, if trigger ssid is around and so on. If all conditions are met, it will keep trying to connect to your defined hotspot at a specified frequency for a specified duration, until either connected to this hotspot or above trigger condition fails(e.g. already connected to another network).
+
 ## Requirement
 
 * Elevated privilege to install the daemon
