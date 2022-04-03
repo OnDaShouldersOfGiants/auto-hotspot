@@ -2,7 +2,7 @@
 
 ## About
 
-Automatically Connect Mac to personal hotspot based on network change. i.e. turn on/off wifi, connected/disconnected to a network, etc.
+Automatically Connect Mac to personal hotspot if no more preferred network available, based on network change. i.e. turn on/off wifi, connected/disconnected to a network, etc.
 
 ## Requirement
 
