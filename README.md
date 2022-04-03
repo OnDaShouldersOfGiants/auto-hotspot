@@ -14,13 +14,13 @@ When network change like turning on/off Wifi takes place, this tool is triggered
 
 ## Usage
 
-### Requirement
+### Requirements
 
 * Elevated privilege to install the daemon
 * Grant *Access Control* permission to `/usr/bin/security` of the hotspot ssid in *Keychain Access*
 * Password for the hotspot has been saved to *keychain*
 
-### Dependency
+### Dependencies
 
 * None
 
@@ -50,7 +50,15 @@ When network change like turning on/off Wifi takes place, this tool is triggered
 
 * [ ] Add more trigger conditions
 
-## Credit
+## Authors
+
+* [@bboysnick5](https://github.com/bboysnick5)
+
+## License
+
+[Apache 2.0](<https://www.apache.org/licenses/LICENSE-2.0>)
+
+## Credits
 
 * <https://gist.github.com/albertbori/1798d88a93175b9da00b>
 * <https://github.com/paulbhart/toggleairport>
