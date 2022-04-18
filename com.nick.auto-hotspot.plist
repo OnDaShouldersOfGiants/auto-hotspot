@@ -4,10 +4,10 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.nick.auto-connect-hotspot</string>
+  <string>com.nick.auto-hotspot</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/Library/Scripts/auto-connect-hotspot.sh</string>
+    <string>/Library/Scripts/auto-hotspot.sh</string>
     <string>HOTSPOT_SSID</string>
     <string>600</string>
     <string>TRIGGER_SSID</string>

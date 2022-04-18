@@ -2,10 +2,10 @@
 ###
 # @Author: Nick Liu
 # @Date: 2022-03-22 10:53:09
-# @LastEditTime: 2022-04-03 16:07:59
+# @LastEditTime: 2022-04-18 16:30:34
 # @LastEditors: Nick Liu
 # @Description: Audo connect Mac to hotspot with supplied command line args as config
-# @FilePath: /init-network-per-net-change-mac/auto-connect-hotspot.sh
+# @FilePath: /init-network-per-net-change-mac/auto-hotspot.sh
 ###
 
 function notify() {

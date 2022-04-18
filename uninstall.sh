@@ -4,6 +4,6 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-launchctl bootout system /Library/LaunchAgents/com.nick.auto-connect-hotspot.plist
-rm /Library/Scripts/auto-connect-hotspot.sh
-rm /Library/LaunchAgents/com.nick.auto-connect-hotspot.plist
+launchctl bootout system /Library/LaunchAgents/com.nick.auto-hotspot.plist
+rm /Library/Scripts/auto-hotspot.sh
+rm /Library/LaunchAgents/com.nick.auto-hotspot.plist
