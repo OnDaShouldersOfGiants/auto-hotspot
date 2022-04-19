@@ -2,7 +2,7 @@
 ###
 # @Author: Nick Liu
 # @Date: 2022-03-22 10:53:09
-# @LastEditTime: 2022-04-18 16:30:34
+# @LastEditTime: 2022-04-19 12:41:50
 # @LastEditors: Nick Liu
 # @Description: Audo connect Mac to hotspot with supplied command line args as config
 # @FilePath: /init-network-per-net-change-mac/auto-hotspot.sh
@@ -37,8 +37,9 @@ function get_pw() {
 function try_connect() {
     start_time_stamp=$SECONDS
     while ! is_connected "$4" "$5" && ((SECONDS - start_time_stamp < $3)); do
+        # if to check trigger ssid and trigger ssid is not present
         if "$6" && ! /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s | awk '{print $1}' | tail -n+2 | grep -q "$1"; then
-            break
+            return
         fi
         networksetup -setairportnetwork "$5" "$2" "$(get_pw "$2")"
         sleep 4
@@ -46,12 +47,12 @@ function try_connect() {
 }
 
 function main() {
-    hotspot_to_connect_ssid="$1"
+    hotspot_ssid="$1"
     max_retry_duration="$2"
     # the trigger ssid that allow this script to keep trying to connect to hotspot if present
-    trigger_to_connect_ssid="$3"
+    trigger_ssid="$3"
     check_trigger_ssid=true
-    if [ -z "$trigger_to_connect_ssid" ]; then
+    if [ -z "$trigger_ssid" ]; then
         check_trigger_ssid=false
     fi
 
@@ -63,9 +64,9 @@ function main() {
         return 0
     fi
 
-    try_connect "$trigger_to_connect_ssid" "$hotspot_to_connect_ssid" "$max_retry_duration" "$eth_name" "$air_name" "$check_trigger_ssid"
+    try_connect "$trigger_ssid" "$hotspot_ssid" "$max_retry_duration" "$eth_name" "$air_name" "$check_trigger_ssid"
     if /usr/sbin/networksetup -getairportnetwork "$air_name" | awk '{ print $4 }' | grep -q 'ip'; then
-        notify "$hotspot_to_connect_ssid"
+        notify "$hotspot_ssid"
     fi
 }
 
