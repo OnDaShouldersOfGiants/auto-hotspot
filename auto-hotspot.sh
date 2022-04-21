@@ -2,7 +2,7 @@
 ###
 # @Author: Nick Liu
 # @Date: 2022-03-22 10:53:09
-# @LastEditTime: 2022-04-19 12:41:50
+# @LastEditTime: 2022-04-21 16:03:15
 # @LastEditors: Nick Liu
 # @Description: Audo connect Mac to hotspot with supplied command line args as config
 # @FilePath: /init-network-per-net-change-mac/auto-hotspot.sh
@@ -48,9 +48,9 @@ function try_connect() {
 
 function main() {
     hotspot_ssid="$1"
-    max_retry_duration="$2"
     # the trigger ssid that allow this script to keep trying to connect to hotspot if present
-    trigger_ssid="$3"
+    trigger_ssid="$2"
+    max_retry_duration="$3"
     check_trigger_ssid=true
     if [ -z "$trigger_ssid" ]; then
         check_trigger_ssid=false

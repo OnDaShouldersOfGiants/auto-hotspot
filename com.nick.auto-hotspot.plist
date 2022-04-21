@@ -9,8 +9,8 @@
   <array>
     <string>/Library/Scripts/auto-hotspot.sh</string>
     <string>HOTSPOT_SSID</string>
-    <string>600</string>
     <string>TRIGGER_SSID</string>
+    <string>600</string>
   </array>
   <key>WatchPaths</key>
   <array>
