@@ -2,7 +2,7 @@
 ###
 # @Author: Nick Liu
 # @Date: 2022-03-22 10:53:09
-# @LastEditTime: 2022-04-21 16:03:15
+# @LastEditTime: 2022-04-22 12:33:56
 # @LastEditors: Nick Liu
 # @Description: Audo connect Mac to hotspot with supplied command line args as config
 # @FilePath: /init-network-per-net-change-mac/auto-hotspot.sh
@@ -36,7 +36,18 @@ function get_pw() {
 
 function try_connect() {
     start_time_stamp=$SECONDS
-    while ! is_connected "$4" "$5" && ((SECONDS - start_time_stamp < $3)); do
+    prev_connected=false
+    while ((SECONDS - start_time_stamp < $3)) || prev_connected; do
+        # make sure connected for at least 10 seconds
+        if is_connected "$4" "$5"; then
+            if $prev_connected; then
+                return
+            fi
+            prev_connected=true
+            sleep 10
+        else
+            prev_connected=false
+        fi
         # if to check trigger ssid and trigger ssid is not present
         if "$6" && ! /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s | awk '{print $1}' | tail -n+2 | grep -q "$1"; then
             return
@@ -60,11 +71,7 @@ function main() {
     eth_names=$(networksetup -listnetworkserviceorder | sed -En 's/^\(Hardware Port: .*(Ethernet|LAN).* Device: (en[0-9]+)\)$/\2/p')
     air_name=$(networksetup -listnetworkserviceorder | sed -En 's/^\(Hardware Port: (Wi-Fi|AirPort).* Device: (en[0-9]+)\)$/\2/p')
 
-    if is_connected "$eth_names" "$air_name"; then
-        return 0
-    fi
-
-    try_connect "$trigger_ssid" "$hotspot_ssid" "$max_retry_duration" "$eth_name" "$air_name" "$check_trigger_ssid"
+    try_connect "$trigger_ssid" "$hotspot_ssid" "$max_retry_duration" "$eth_names" "$air_name" "$check_trigger_ssid"
     if /usr/sbin/networksetup -getairportnetwork "$air_name" | awk '{ print $4 }' | grep -q 'ip'; then
         notify "$hotspot_ssid"
     fi
