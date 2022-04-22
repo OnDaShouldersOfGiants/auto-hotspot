@@ -2,7 +2,7 @@
 ###
 # @Author: Nick Liu
 # @Date: 2022-03-22 10:53:09
-# @LastEditTime: 2022-04-22 13:56:47
+# @LastEditTime: 2022-04-22 16:01:58
 # @LastEditors: Nick Liu
 # @Description: Audo connect Mac to hotspot with supplied command line args as config
 # @FilePath: /init-network-per-net-change-mac/auto-hotspot.sh
@@ -60,10 +60,11 @@ function try_connect() {
             false
             return
         fi
-        if [[ $(networksetup -setairportnetwork "$5" "$2" "$(get_pw "$2")") -ne 0 ]]; then
+        if [ -z "$(networksetup -setairportnetwork "$5" "$2" "$(get_pw "$2")")" ]; then
             connected_by_script=true
+        else
+            sleep 4
         fi
-        sleep 4
     done
 }
 
