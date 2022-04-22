@@ -2,15 +2,14 @@
 ###
 # @Author: Nick Liu
 # @Date: 2022-03-22 10:53:09
-# @LastEditTime: 2022-04-22 16:01:58
+# @LastEditTime: 2022-04-22 16:07:20
 # @LastEditors: Nick Liu
 # @Description: Audo connect Mac to hotspot with supplied command line args as config
 # @FilePath: /init-network-per-net-change-mac/auto-hotspot.sh
 ###
 
 function notify() {
-    osascript -e 'display notification "Connected to hotspot "' \
-        "$1"'" with title "Connected"'
+    osascript -e "display notification \"Connected to hotspot $1\" with title \"Connected\""
 }
 
 # fix tests
