@@ -1,7 +1,7 @@
 <!--
  * @Author: Nick Liu
  * @Date: 2022-03-22 10:53:09
- * @LastEditTime: 2022-04-18 16:23:06
+ * @LastEditTime: 2022-06-30 16:15:17
  * @LastEditors: Nick Liu
  * @Description: The readme file
  * @FilePath: /init-network-per-net-change-mac/README.md
@@ -14,7 +14,7 @@ Automatically Connect Mac to personal hotspot if no more preferred network avail
 
 ### Intro
 
-As of macOS 12.3, Apple does not allow you to automatically initialize connection to your iPhone's hotspot as it treats the hotspot in a proprietary fashion which differs than treating other Wifi networks. This tool helps you achieve that.
+As of macOS 12.4, Apple does not allow you to automatically initialize connection to your iPhone's hotspot as it treats the hotspot in a proprietary fashion which differs than treating other Wifi networks. This tool helps you achieve that.
 This program is intentionally written and will be maintained in the future in pure shell(bash) script so that no dependencies need to be introduced.
 
 ### How does it work
