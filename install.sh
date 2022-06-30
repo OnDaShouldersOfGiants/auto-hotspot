@@ -2,7 +2,7 @@
 ###
 # @Author: Nick Liu
 # @Date: 2022-03-22 10:53:09
-# @LastEditTime: 2022-04-22 11:07:52
+# @LastEditTime: 2022-06-30 16:47:09
 # @LastEditors: Nick Liu
 # @Description: the utility script for installation/uninstallation and help menu
 # @FilePath: /init-network-per-net-change-mac/install.sh
@@ -30,11 +30,15 @@ readonly RETRY_DURATION_FLAG=("d" "retry_duration" "d:" "retry_duration")
 readonly INSTALL_FLAG=("i" "install" "i")
 readonly UNINSTALL_FLAG=("u" "uninstall" "u")
 
+# print line
+# first param: false: no-op
+#              true: empty line
+#              otherwise: treat first and the rest params as printf params
 fmt_println() {
-    # able to print or not print based on first string param being (true)/false
     flag_start_idx=1
     num_flags=$#-1
     if [[ "$1" == "false" ]]; then
+        # no-op
         return
     elif [[ "$1" == "true" ]]; then
         # empty line
@@ -167,9 +171,11 @@ main() {
     hotspot_ssid=""
     retry_duration=""
     to_install=false
+    has_args=false
     program_indent=$((${#0} + 1))
     optstr=":-:${HELP_FLAG[2]}${VERSION_FLAG[2]}${HOTSPOT_SSID_FLAG[2]}${TRIGGER_SSID_FLAG[2]}${RETRY_DURATION_FLAG[2]}${INSTALL_FLAG[2]}${UNINSTALL_FLAG[2]}"
     while getopts "$optstr" opt; do
+        has_args=true
         # support long options: https://stackoverflow.com/a/28466267/519360
         if [ "$opt" = "-" ]; then     # long opt, reformulate OPT and OPTARG
             opt="${OPTARG%%=*}"       # extract long opt name
@@ -201,7 +207,7 @@ main() {
         # uninstall
         elif is_in "$opt" "${UNINSTALL_FLAG[@]}"; then
             check_privilege "$0"
-            uninstall "$0"
+            uninstall
             exit
         elif [ -n "$OPTARG" ]; then
             echo "Error, Invalid argument $OPTARG"
@@ -210,6 +216,11 @@ main() {
             echo "This should be unreachable. Debug required." >&2
         fi
     done
+    if ! $has_args; then
+        help "$0" "$program_indent" "USAGE"
+        help "$0" "$program_indent" "OPTION"
+        exit
+    fi
     if $to_install; then
         if [ -n "$hotspot_ssid" ]; then
             install "$hotspot_ssid" "$trigger_ssid" "$retry_duration"
