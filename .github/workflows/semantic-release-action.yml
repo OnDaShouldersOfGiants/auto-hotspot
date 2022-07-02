@@ -38,8 +38,6 @@ jobs:
                 prerelease: true
               }
             ]
-          extends: |
-            ~/.releaserc.json
           extra_plugins: |
             @semantic-release/git
             @semantic-release/changelog
