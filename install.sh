@@ -2,7 +2,7 @@
 ###
 # @Author: Nick Liu
 # @Date: 2022-03-22 10:53:09
-# @LastEditTime: 2022-07-02 11:25:16
+# @LastEditTime: 2022-07-02 11:27:27
 # @LastEditors: Nick Liu
 # @Description: the utility script for installation/uninstallation and help menu
 # @FilePath: /init-network-per-net-change-mac/install.sh
@@ -184,7 +184,6 @@ main() {
         fi
         # display Help
         if is_in "$opt" "${HELP_FLAG[@]}"; then
-            help "$0" "$program_indent" "USAGE"
             help "$0" "$program_indent" "OPTION"
             exit
         # version
