@@ -7,9 +7,11 @@
   <string>com.nick.auto-hotspot</string>
   <key>ProgramArguments</key>
   <array>
+    <string>/bin/bash</string>
     <string>/Library/Scripts/auto-hotspot.sh</string>
     <string>HOTSPOT_SSID</string>
     <string>TRIGGER_SSID</string>
+    <string>RETRY_DURATION</string>
     <string>USER_ID</string>
   </array>
   <key>WatchPaths</key>

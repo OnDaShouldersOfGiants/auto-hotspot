@@ -2,7 +2,7 @@
 ###
 # @Author: Nick Liu
 # @Date: 2022-03-22 10:53:09
-# @LastEditTime: 2022-07-02 11:27:27
+# @LastEditTime: 2022-07-06 16:06:15
 # @LastEditors: Nick Liu
 # @Description: the utility script for installation/uninstallation and help menu
 # @FilePath: /init-network-per-net-change-mac/install.sh
@@ -146,7 +146,9 @@ install() {
     fi
 
     if [ -n "$3" ]; then
-        replace_str_in_plist "600" "$3"
+        replace_str_in_plist "RETRY_DURATION" "$3"
+    else
+        replace_str_in_plist "RETRY_DURATION" 600
     fi
 
     user_name=$(who am i | awk '{print $1}')
