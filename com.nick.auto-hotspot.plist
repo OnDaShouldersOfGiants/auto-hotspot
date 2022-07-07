@@ -10,7 +10,7 @@
     <string>/Library/Scripts/auto-hotspot.sh</string>
     <string>HOTSPOT_SSID</string>
     <string>TRIGGER_SSID</string>
-    <string>600</string>
+    <string>USER_ID</string>
   </array>
   <key>WatchPaths</key>
   <array>

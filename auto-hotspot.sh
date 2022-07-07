@@ -11,7 +11,7 @@
 trap -- '' SIGINT SIGTERM
 
 function notify() {
-    osascript -e "display notification \"Connected to hotspot $1\" with title \"Connected\""
+    launchctl asuser "$2" osascript -e "display notification \"Connected to hotspot $1\" with title \"Network Connected\""
 }
 
 # fix tests
@@ -84,7 +84,7 @@ function main() {
     air_name=$(networksetup -listnetworkserviceorder | sed -En 's/^\(Hardware Port: (Wi-Fi|AirPort).* Device: (en[0-9]+)\)$/\2/p')
 
     if try_connect "$trigger_ssid" "$hotspot_ssid" "$max_retry_duration" "$eth_names" "$air_name" "$check_trigger_ssid"; then
-        notify "$hotspot_ssid"
+        notify "$hotspot_ssid" "$4"
     fi
 }
 

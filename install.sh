@@ -149,6 +149,10 @@ install() {
         replace_str_in_plist "600" "$3"
     fi
 
+    user_name=$(who am i | awk '{print $1}')
+    user_id=$(id -u "$user_name")
+    replace_str_in_plist "USER_ID" "$user_id"
+
     cp ./auto-hotspot.sh /Library/Scripts/
     chmod 755 /Library/Scripts/auto-hotspot.sh
     mv ./com.nick.auto-hotspot.plist.new /Library/LaunchDaemons/com.nick.auto-hotspot.plist
